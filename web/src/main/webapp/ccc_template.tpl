@@ -1,76 +1,55 @@
-    <div class="aui-layout-content">
-        <div class="aui-column aui-w5 aui-column-first" style="background-color: #AAAAAA">
-            <div class="content">
-                <!--Navigation frame-->
+<style>
+.ccc-border {border:1px solid #000;}
+.ccc-border-top {border-top:1px solid #000;}
+.ccc-border-bottom {border-bottom:1px solid #000;}
+.ccc-border-right {border-right:1px solid #000;}
+.ccc-border-left {border-left:1px solid #000;}
+div#ccc-layout {background-color: #FFF;}
+#ccc-left-panel {float:left;}
+</style>
+
+<div id="ccc-layout">
+    <div class="aui-layout-content ccc-border" id="banner">
+        Banner frame
+    </div>
+    <div id="ccc-main" class="aui-layout-content ccc-border-left ccc-border-right ccc-border-bottom">
+        <div id="ccc-left-panel" class="aui-column aui-w35">
+            <div id="ccc-navigation" class="content ccc-border-right">
+                <!--Navigation frame-->Navigation frame
                 $processor.processColumn("column-1", "portlet-column-content portlet-column-content-only")
             </div>
         </div>
-        <div class="aui-column aui-w95" style="background-color: #EEEEEE">
-            <div class="content">
-                <!--Time frame-->
+        <div id="ccc-right-panel" class="aui-column aui-w65">
+            <div class="content ccc-border-bottom">
+                <!--Time frame-->Time frame
                 $processor.processColumn("column-2", "portlet-column-content portlet-column-content-only")
             </div>
-            <div class="aui-layout-content">
-                <div class="aui-column aui-w75" style="background-color: #AAAABB">
-                    <div class="content">
-                        <!--Main frame-->
+            <div id="parent-content" class="aui-layout-content">
+                <div class="aui-column aui-w75">
+                    <div id="ccc-content" class="content ccc-border-right">
+                        <!--Main frame-->Main frame
                         $processor.processColumn("column-5", "portlet-column-content portlet-column-content-only")
                     </div>
                 </div>
-                <div class="aui-column aui-w25" style="background-color: #AAEEAA">
-                    <div class="content">
-                        <!--Buttons frame-->
+                <div class="aui-column aui-w25">
+                    <div class="content ccc-border-bottom">
+                        <!--Buttons frame-->Buttons frame
                         $processor.processColumn("column-7", "portlet-column-content portlet-column-content-only")
                     </div>
                     <div class="content">
-                        <!--Recomended frame-->
+                        <!--Recomended frame-->Recomendations frame
                         $processor.processColumn("column-8", "portlet-column-content portlet-column-content-only")
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
+<script type="text/javascript">
+    var hMain = document.getElementById("ccc-right-panel").offsetHeight;
+    document.getElementById("ccc-navigation").style.height = hMain + "px";
 
-<!--div class="columns-1-3" id="main-content" role="main">
-    <table class="portlet-layout" border="1">
-        <tr>
-            <td class="aui-w1-10 portlet-column portlet-column-first" id="column-1">
-                $processor.processColumn("column-1", "portlet-column-content portlet-column-content-only")
-            </td>
-            <td class="aui-w1-90 portlet-column portlet-column-last" id="column-2">
-                <table>
-                    <tr>
-                        <td class="aui-w1-100 portlet-column portlet-column-only" id="column-3">
-                            $processor.processColumn("column-2", "portlet-column-content portlet-column-content-only")
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="aui-w1-100 portlet-column portlet-column-only" id="column-4">
-                            <table>
-                                <tr>
-                                    <td class="aui-w1-70 portlet-column portlet-column-only" id="column-5">
-                                        $processor.processColumn("column-5", "portlet-column-content portlet-column-content-only")
-                                    </td>
-                                    <td class="aui-w1-30 portlet-column portlet-column-only" id="column-6">
-                                        <table>
-                                            <tr>
-                                                <td class="aui-w1-100 portlet-column portlet-column-only" id="column-7">
-                                                    $processor.processColumn("column-7", "portlet-column-content portlet-column-content-only")
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="aui-w1-100 portlet-column portlet-column-only" id="column-8">
-                                                    $processor.processColumn("column-8", "portlet-column-content portlet-column-content-only")
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table-->
+    var cContent = document.getElementById("parent-content").offsetHeight;
+    document.getElementById("ccc-content").style.height = cContent + "px";
+</script>
