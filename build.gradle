@@ -1,0 +1,55 @@
+dependsOnChildren()
+
+allprojects {
+    group = 'com.ccc'
+    version = '0.0.1-SNAPSHOT'
+    repositories {
+        mavenCentral()
+        mavenRepo url: 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    //Tasks that will be executed while 'gradle' is called without params.
+    defaultTasks 'clean', 'pmd', 'build'
+
+    configurations {
+        pmdConf
+    }
+
+    dependencies {
+        pmdConf group: 'pmd', name: 'pmd', version: '4.2.5'
+    }
+
+    task pmd (dependsOn: compileJava) << {
+        println 'Running PMD static code analysis'
+        ant {
+            if (!buildDir.isDirectory()) {
+                buildDir.mkdirs()
+            }
+            taskdef(name: 'pmd', classname: 'net.sourceforge.pmd.ant.PMDTask', classpath: configurations.pmdConf.asPath)
+            taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask', classpath: configurations.pmdConf.asPath)
+
+            pmd(shortFilenames: 'true',
+                    failonruleviolation: 'false',//TODO set to true after resolving pmd issues
+                    rulesetfiles: 'rulesets/basic.xml, rulesets/braces.xml, rulesets/clone.xml, rulesets/coupling.xml, rulesets/codesize.xml, rulesets/design.xml, rulesets/migrating.xml, rulesets/naming.xml, rulesets/strictexception.xml, rulesets/strings.xml, rulesets/unusedcode.xml') {
+                formatter(type: 'xml', toFile: 'build/pmd.xml')
+                fileset(dir: "src/main/java") {
+                    include(name: '**/*.java')
+                }
+                fileset(dir: "src/test/java") {
+                    include(name: '**/*.java')
+                }
+            }
+            cpd(minimumTokenCount: '50', format: 'xml',
+                    ignoreIdentifiers: 'true',
+                    outputFile: 'build/cpd.xml') {
+                fileset(dir: "src/main/java") {
+                    include(name: '**/*.java')
+                }
+            }
+        }
+    }
+}

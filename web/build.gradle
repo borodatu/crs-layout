@@ -1,0 +1,14 @@
+apply plugin: 'war' 
+war {
+   baseName = "ccc-layout-0.0.1"
+} 
+
+
+task deploylocal(dependsOn: build) << {
+    println "Copy from ${libsDir.getPath()} into ${liferayDeploy}"
+    copy {
+        from libsDir
+        into "${liferayDeploy}"
+        include '*.war'
+    }
+}
