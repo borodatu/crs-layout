@@ -4,10 +4,10 @@
 
 <layout-templates>
     <custom>
-        <layout-template id="ccc_template" name="CCC layout template">
-            <template-path>/ccc_template.tpl</template-path>
-            <wap-template-path>/ccc_template.wap.tpl</wap-template-path>
-            <thumbnail-path>/ccc_template.png</thumbnail-path>
+        <layout-template id="crs_template" name="CRS layout template">
+            <template-path>/crs_template.tpl</template-path>
+            <wap-template-path>/crs_template.wap.tpl</wap-template-path>
+            <thumbnail-path>/crs_template.png</thumbnail-path>
         </layout-template>
     </custom>
 </layout-templates>

@@ -1,6 +1,6 @@
 apply plugin: 'war' 
 war {
-   baseName = "ccc-layout-0.0.1"
+   baseName = "crs-layout-0.0.1"
 } 
 
 
