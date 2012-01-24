@@ -1,4 +1,10 @@
 <style>
+    #wrapper {
+        width: 1000px !important;
+        max-width: 1000px !important;
+        min-width: 1000px !important;
+    }
+
     .ccc-border {
         border: 1px solid #000;
     }
@@ -31,6 +37,23 @@
         display: block;
         vertical-align: top;
     }
+
+    .ccc-aui-w35 {
+        width: 348px;
+    }
+
+    .ccc-aui-w65 {
+        width: 650px;
+    }
+
+    .ccc-aui-w40 {
+        width: 400px;
+    }
+
+    .ccc-aui-w25 {
+        width: 250px;
+    }
+
 </style>
 
 <div id="ccc-layout">
@@ -39,25 +62,25 @@
         $processor.processColumn("column-1", "portlet-column-content portlet-column-content-only")
     </div>
     <div id="ccc-main" class="aui-layout-content ccc-border-left ccc-border-right ccc-border-bottom">
-        <div id="ccc-left-panel" class="aui-column aui-w35">
+        <div id="ccc-left-panel" class="aui-column ccc-aui-w35">
             <div id="column-2" class="portlet-column content ccc-border-right aui-dd-drop">
                 <!--Navigation frame-->
                 $processor.processColumn("column-2", "portlet-column-content portlet-column-content-only")
             </div>
         </div>
-        <div id="ccc-right-panel" class="aui-column aui-w65">
+        <div id="ccc-right-panel" class="aui-column ccc-aui-w65">
             <div id="column-3" class="portlet-column content ccc-border-bottom aui-dd-drop">
                 <!--Time frame-->
                 $processor.processColumn("column-3", "portlet-column-content portlet-column-content-only")
             </div>
             <div id="parent-content" class="aui-layout-content">
-                <div class="aui-column aui-w75">
+                <div class="aui-column ccc-aui-w40">
                     <div id="column-5" class="portlet-column content ccc-border-right aui-dd-drop">
                         <!--Main frame-->
                         $processor.processColumn("column-5", "portlet-column-content portlet-column-content-only")
                     </div>
                 </div>
-                <div class="aui-column aui-w25">
+                <div class="aui-column ccc-aui-w25">
                     <div id="column-7" class="portlet-column content ccc-border-bottom aui-dd-drop">
                         <!--Buttons frame-->
                         $processor.processColumn("column-7", "portlet-column-content portlet-column-content-only")
