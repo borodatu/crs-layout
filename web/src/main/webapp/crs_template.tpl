@@ -53,7 +53,6 @@
     .ccc-aui-w25 {
         width: 250px;
     }
-
 </style>
 
 <div id="ccc-layout">
@@ -95,6 +94,7 @@
     </div>
 </div>
 
+<!--It needs because layout based on divs. But we need remove it in the fututre.-->
 <script type="text/javascript">
     var hMain = document.getElementById("ccc-right-panel").offsetHeight;
     document.getElementById("column-2").style.height = hMain + "px";
